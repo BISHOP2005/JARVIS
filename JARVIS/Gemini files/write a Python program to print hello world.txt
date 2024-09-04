@@ -1,0 +1,16 @@
+A.I responce for prompt: using artificial intelligence write a Python program to print hello world
+*******************************
+
+```python
+print("Hello, world!")
+```
+
+This program uses the `print()` function, which is a built-in function in Python that displays the specified text on the console. 
+
+While this is a simple example, it demonstrates how AI can be used to generate code. AI-powered code generators can assist programmers by:
+
+* **Auto-completing code:** They can suggest code snippets based on the context and predict what the developer is trying to achieve.
+* **Generating boilerplate code:**  They can create basic structures for common programming tasks like setting up a web server or creating a database connection.
+* **Translating natural language to code:** They can understand natural language instructions and convert them into executable code.
+
+This example shows the basic functionality of AI in code generation. However,  AI-powered code generation tools are becoming increasingly sophisticated and are capable of more complex tasks. 

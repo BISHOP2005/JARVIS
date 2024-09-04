@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Assistant</title>
+<style>
+        body{
+            background-color: black;
+            color: #ffffff;
+
+            align-items: center;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 4px solid #0ff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #0ff ;
+        }
+        .body {
+            background-color: black;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+
+
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        div {
+            background-color: black;
+            border-radius: 20px;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+            width: max-content;
+            max-width: 800px;
+            margin: 0;
+        }
+
+        #output {
+            border: 2px solid #0ff;
+            border-radius: 10px;
+            padding: 20px;
+            padding-top: 30px;
+            box-shadow: 0 0 10px #0ff;
+
+        }
+
+        #gif-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 200px;
+        }
+
+        #gif {
+            max-width: 100%;
+            height: auto;
+
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div id="gif-container">
+            <img id="gif" src="{{ url_for('static', filename='media/giphy.gif') }}" alt="Virtual Assistant GIF">
+        </div>
+    <div id="container" class="body">
+
+        <div id="output">
+        {% for line in output_data %}
+            <p>{{ line }}</p>
+        {% endfor %}
+        </div>
+    </div>
+    </center>
+    <script>
+        function fetchUpdates() {
+            fetch('/update_output')
+                .then(response => response.json())
+                .then(data => {
+                    const outputDiv = document.getElementById('output');
+                    outputDiv.innerHTML = '';
+                    data.output_data.forEach(line => {
+                        const p = document.createElement('p');
+                        p.textContent = line;
+                        outputDiv.appendChild(p);
+                    });
+                })
+                .catch(error => console.error('Error fetching updates:', error));
+        }
+
+        setInterval(fetchUpdates, 1000); // Fetch updates every second
+    </script>
+</body>
+</html>

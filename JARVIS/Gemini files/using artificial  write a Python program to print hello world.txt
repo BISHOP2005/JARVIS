@@ -1,0 +1,12 @@
+A.I responce for prompt: using artificial intelligence using artificial intelligence write a Python program to print hello world
+*******************************
+
+```python
+print("Hello, world!")
+```
+
+This program uses the built-in `print()` function in Python to display the text "Hello, world!" on the console. 
+
+While this program doesn't utilize any advanced AI techniques, it demonstrates the basic functionality of printing text using Python. 
+
+Let me know if you'd like to explore more complex AI applications! 
